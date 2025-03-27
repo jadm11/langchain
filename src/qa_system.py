@@ -16,10 +16,10 @@ def get_project_root():
     return Path(__file__).parent.parent
 
 def setup_qa_chain():
-    """Initialize and configure the QA chain with document loading and vector storage.
+    """Initialize and configure the Q&A chain with document loading and vector storage.
     
     Returns:
-        RetrievalQA: Configured QA chain ready for queries.
+        RetrievalQA: Configured Q&A chain ready for queries.
         
     Raises:
         ValueError: If OPENAI_API_KEY is not set
@@ -59,8 +59,8 @@ def setup_qa_chain():
             persist_directory=str(db_dir)
         )
 
-        # Set up retriever to fetch 2 most relevant chunks per query
-        retriever = vectorstore.as_retriever(search_kwargs={"k": 2})
+        # Set up retriever to fetch 3 most relevant chunks per query
+        retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
         
         # Create and return the QA chain with OpenAI model
         return RetrievalQA.from_chain_type(
@@ -73,14 +73,14 @@ def setup_qa_chain():
         sys.exit(1)
 
 def main():
-    """Main function to run the interactive QA system.
+    """Main function to run the interactive Q&A system.
     
     Provides a command-line interface for users to ask questions about
     migratory birds, using the knowledge base in data/knowledge.txt.
     Users can exit by typing 'exit' or 'quit', or using Ctrl+C.
     """
-    print("\n=== Migratory Birds Knowledge Base QA System ===")
-    print("Initializing the QA system...")
+    print("\n=== Migratory Birds Knowledge Base Q&A System ===")
+    print("Initializing the Q&A system...")
     qa_chain = setup_qa_chain()
     
     print("\nWelcome! You can ask questions about:")
@@ -104,7 +104,7 @@ def main():
                 continue
                 
             if query.lower() in ("exit", "quit"):
-                print("\nThank you for using the Migratory Birds QA system. Goodbye!")
+                print("\nThank you for using the Migratory Birds Q&A system. Goodbye!")
                 break
                 
             # Process query and display response

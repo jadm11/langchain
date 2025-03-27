@@ -1,4 +1,4 @@
-# LangChain QA System
+# LangChain Q&A System
 
 A question-answering system built with LangChain and ChromaDB that provides accurate answers based on a knowledge base.
 
@@ -72,7 +72,7 @@ The system comes with a pre-configured knowledge base about migratory birds in `
 
 ## Usage
 
-1. Run the QA system:
+1. Run the Q&A system:
    ```bash
    python src/qa_system.py
    ```

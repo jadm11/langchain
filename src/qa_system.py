@@ -69,7 +69,7 @@ def setup_qa_chain():
             retriever=retriever
         )
     except Exception as e:
-        print(f"Error setting up the QA chain: {str(e)}")
+        print(f"Error setting up the Q&A chain: {str(e)}")
         sys.exit(1)
 
 def main():

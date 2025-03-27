@@ -102,6 +102,7 @@ The system is optimized for questions about:
 
 ## Maintenance
 
+- Define the path in your .env CHROMA_PERSIST_DIRECTORY=db/chroma_db
 - The vector database is stored in `db/chroma_db/`
 - To force a fresh start, delete the `db/chroma_db/` directory
 - The system will automatically recreate the database on next run
